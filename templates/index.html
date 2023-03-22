@@ -4,9 +4,12 @@
     <meta charset="UTF-8">
     <title>My Website</title>
     <link rel="stylesheet" href="../static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="nav">
+    <header class="nav-container">
     {#When clicked, hamburger menu appears and chosen link moves to center as the title.#}
         <ul>
             <li><a href="#">About</a></li>
@@ -16,8 +19,8 @@
         </ul>
     </header>
     <article class="name intro-container">
-{#Insert "Hello, my name is: " as JavaScript and then replace with the below, similar to how Cortana introduces
-Windows 10/11#}
+    {#Insert "Hello, my name is: " as JavaScript and then replace with the below, similar to how Cortana introduces
+    Windows 10/11#}
         <h1>Michelle A McLean</h1>
         <ul>
             <li>Web Developer</li>
