@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Website</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+    <header class="nav">
+    {#When clicked, hamburger menu appears and chosen link moves to center as the title.#}
+        <ul>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Store</a></li>
+            <li><a href={{ url_for('blog') }}>Blog</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </header>
+    <article class="name intro-container">
+{#Insert "Hello, my name is: " as JavaScript and then replace with the below, similar to how Cortana introduces
+Windows 10/11#}
+        <h1>Michelle A McLean</h1>
+        <ul>
+            <li>Web Developer</li>
+            <li>Python Developer</li>
+            <li>Professional Marketer</li>
+            <li>Artist</li>
+        </ul>
+    </article>
+    <div class="shiba-puppy">
+        <img class="image" src="../static/images/shiba.png" alt="Shiba Puppy" width="450">
+    </div>
+{#    {% for entry in response %}#}
+{#
+{#    {% endfor %}#}
+    <footer>
+        <small>&copy; MMcLean Media, {{ year }}. All rights reserved.</small>
+    </footer>
+</body>
+</html>

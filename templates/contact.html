@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact</title>
+    <link rel="stylesheet" href="../static/blog.css">
+    <link rel="stylesheet" href="../static/contact.css">
+</head>
+<body>
+    <div class="contact_container">
+        <h1>Contact Me</h1>
+        <form method="POST" action="{{ url_for('contact_page') }}">
+            {{ form.csrf_token }}
+            <div class="form-container">
+            <p class="name">
+                {{ form.name.label }}
+                <br>
+                {{ form.name }}
+            </p>
+            <p class="email">
+                {{ form.email.label }}
+                <br>
+                {{ form.email(size=30) }}
+            </p>
+            <p class="message">
+                {{ form.message.label }}
+                <br>
+                {{ form.message }}
+            </p>
+            </div>
+            <div class="send-message">
+            {{ form.submit(class_="submit-button") }}
+            </div>
+        </form>
+    </div>
+</body>
+</html>

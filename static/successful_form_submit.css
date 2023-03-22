@@ -1,0 +1,9 @@
+.crop-container {
+    background-color: rgba(4, 4, 42);
+    mix-blend-mode: overlay;
+    width: 100vw;
+}
+.crop-container img {
+    margin-top: -100px;
+    margin-left: 0;
+}

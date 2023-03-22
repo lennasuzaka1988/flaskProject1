@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog</title>
+    <link rel="stylesheet" type="text/css" href="../static/opencritic_api_project.css" />
+</head>
+<body class="l-container">
+   {% for entry in titles %}
+    <div class="b-game-card">
+           <h3>{{ entry[0] }}</h3>
+       <div class="b-game-card__cover" style="background: url({{ entry[2] }}) no-repeat; background-size: cover;">
+           <h3>{{ entry[0] }}</h3>
+           <h3>Score: {{ entry[1] }}</h3>
+       </div>
+    </div>
+   {% endfor %}
+
+</body>
+</html>

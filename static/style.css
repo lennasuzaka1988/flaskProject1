@@ -1,0 +1,134 @@
+body {
+    height: 100vh;
+    width: 100%;
+    background-image: url("images/benjamin-voros-phIFdC6lA4E-unsplash.jpg");
+    background-color: rgba(6, 6, 53, 0.6);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-blend-mode: multiply;
+    position: relative;
+    display: grid;
+    color: #FFF;
+    grid-template-areas:
+            "navbar navbar navbar"
+            "name name image"
+            "footer footer footer";
+    margin: 0;
+    grid-template-rows: 125px 1fr 100px;
+    grid-template-columns: 1fr 1fr 1fr;
+    font-family: "Trebuchet MS", sans-serif;
+}
+
+.nav {
+    grid-area: navbar;
+    background: linear-gradient(60deg, #2E2843, #04042a 40%);
+}
+
+.nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    list-style: none;
+    font-family: Tahoma, sans-serif;
+    font-size: 3vw;
+    padding-left: 0;
+}
+
+h1 {
+    margin: 0;
+}
+
+.intro-container {
+    grid-area: name;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 0 0 2em;
+    height: auto;
+}
+
+.name {
+    display: flex;
+    color: #e1e9ff;
+    font-weight: bold;
+    font-size: 4vw;
+}
+
+.name > ul {
+    font-size: 3vw;
+    font-weight: normal;
+    list-style: none;
+    padding: 30px 0 0 0;
+    margin: 0;
+    line-height: 1.25em;
+}
+
+.image {
+    grid-area: image;
+}
+
+.shiba-puppy {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 2em 3vw 0 0;
+}
+
+.blog {
+    grid-area: blog;
+    background: yellow;
+}
+
+.gameimage {
+    grid-area: gameimage;
+    background: cornflowerblue;
+}
+
+footer {
+    grid-area: footer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: linear-gradient(60deg, #040911, #232a42 40%);
+}
+
+footer > small {
+    margin: 0 0 0 4em;
+}
+
+a, a:active {
+    text-decoration: none;
+    color: #FFF
+}
+
+@media only screen and (max-width: 1000px) {
+    .nav {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: clamp(75px, 1vh, 300px);
+    }
+    .nav ul {
+        margin: 0;
+    }
+    a {
+        font-size: clamp(16px, 3rem, 20px);
+    }
+    .intro-container {
+        margin: 0 0 0 2rem;
+    }
+    .name {
+        display: block;
+        font-size: 3vw;
+    }
+    .shiba-puppy {
+        display: block;
+        align-items: center;
+        margin: 0;
+        padding: 2em 5vw 0 0;
+    }
+    .shiba-puppy img {
+        height: 25%;
+        width: auto;
+    }
+}

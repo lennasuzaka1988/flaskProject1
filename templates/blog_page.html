@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="../static/blog_page.css">
+    <title>12 in 12 Blog</title>
+</head>
+    <body class="entry-container">
+            <header class="nav">
+                <h1>{{ month }}, {{ year }}: {{ post['title'] }}</h1>
+            </header>
+            <div class="blog-subcontainer">
+            <article>
+                <h1><em>{% block title %}{{ post['subtitle'] }}{% endblock %}</em></h1>
+                <p>
+                    {% block content %}
+                    {{ post['body'] }}
+                    {% endblock %}
+                </p>
+            </article>
+            </div>
+            <div class="blog-image-box">
+                <div class="blog-image">{% block blog_image %}
+{#                    <img src="{{ image }}" alt={{ alt_info }}>#}
+                    {% endblock %}
+                </div>
+            </div>
+            {% include 'footer.html' %}
+    </body>
+</html>

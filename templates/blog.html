@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog</title>
+    <link rel="stylesheet" href="../static/blog.css">
+</head>
+<body class="container">
+<header class="nav">
+    <h1>My 12 in 12 Journey</h1>
+</header>
+<div class="blog_container">
+    {% for entry in post %}
+    <a style='text-decoration: none' href={{ url_for('blog_page', num=entry['id']) }}><div class="card">
+        <img class="card__image" src="../static/images/lightfall.jfif" alt="Destiny 2: Lightfall">
+        <div class="card__content">
+            {# current date will fuck up because it will post only the current date at the time of refresh #}
+            <span style="opacity: 0;">{{ entry['id'] }}</span>
+            <time class="card__date" datetime={{ current_date }}>{{ current_date }}</time>
+            <span class="card__title">{{ entry['title'] }}</span>
+        </div>
+    </div>
+    </a>
+    {% endfor %}
+</div>
+{% include 'footer.html' %}
+</body>
+</html>

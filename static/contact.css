@@ -1,0 +1,76 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact_container {
+    display: grid;
+    grid-template-areas:
+            "Contact"
+            "Submit";
+    grid-template-rows: 150px 1fr;
+    grid-template-columns: 1fr;
+    width: 75vw;
+    height: 75vw;
+    margin: 10vh 10vh;
+    justify-content: center;
+    align-items: stretch;
+    background-color: #6767b7;
+    border-radius: 25px;
+    box-shadow: rgba(4, 4, 42, 0.6) -1px 20px 10px 0, rgba(4, 4, 42, 0.5) 0 20px 10px 0, rgba(4, 4, 42, 0.4) 0 20px 10px 0, rgba(4, 4, 42, 0.3) 0 20px 25px 0, rgba(4, 4, 42, 0.2) 0 20px 50px 0;
+}
+
+h1 {
+    grid-area: Contact;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2em;
+    font-size: 3.5em;
+}
+
+.form-container {
+    display: grid;
+    color: #fff;
+    font-size: 1.25em;
+    grid-template-areas:
+        "Name"
+        "Email"
+        "Message";
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
+}
+
+.name {
+    display: flex;
+    justify-content: space-evenly;
+    grid-area: Name;
+}
+
+.email {
+    display: flex;
+    justify-content: space-evenly;
+    grid-area: Email;
+}
+
+.message {
+    display: flex;
+    justify-content: space-evenly;
+    grid-area: Message;
+}
+
+.send-message {
+    display: flex;
+    margin-top: 5vh;
+    flex-direction: column;
+    align-items: center;
+}
+
+.submit-button {
+    font-size: 2vw;
+    padding: 10px;
+    border-radius: 10px;
+    width: fit-content;
+}
