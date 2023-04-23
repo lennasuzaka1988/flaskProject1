@@ -1,0 +1,222 @@
+:root {
+  --: #fbfcfc;
+  --fresh-snow: #fbfcfc;
+  --day-after-snow: #e8ecf2;
+  --snowy-contrast: #a3b1bc;
+  --snowy-light-shadow: #4e5f6e;
+  --snowy-dark-shadow: #1d252b;
+}
+
+.feather {
+  color: var(--snowy-light-shadow);
+  stroke-width: 2.5;
+  width: 26px;
+  height: 26px;
+}
+
+.hamburger-menu-container,
+.nav-item {
+  --size: 6vw;
+  background-color: var(--snowy-dark-shadow);
+  width: var(--size);
+  height: var(--size);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease-in;
+  cursor: pointer;
+  font-family: 'Sniglet', cursive;
+}
+
+.hamburger-menu-container:hover,
+.nav-item:hover {
+  background-color: var(--snowy-light-shadow);
+}
+
+.hamburger-menu {
+  width: 50%;
+  position: relative;
+}
+
+.hamburger-menu-line {
+  background-color: var(--snowy-contrast);
+  height: 4px;
+  border-radius: 2px;
+}
+
+.hamburger-menu-line:first-child, .hamburger-menu-line:last-child {
+  width: 100%;
+  position: absolute;
+  transition: all 0.1s ease-out;
+}
+
+.hamburger-menu-line:not(:first-child):not(:last-child) {
+  animation-name: hamburger;
+  animation-duration: 0.15s;
+  animation-delay: 0.15s;
+  transform: scaleX(0);
+}
+
+.hamburger-menu-line, .hamburger-menu-line:first-child, .hamburger-menu-line:last-child {
+  animation-fill-mode: forwards;
+}
+
+.hamburger-menu-line:first-child, .hamburger-menu-line:last-child {
+  transform-origin: 50%;
+  animation-duration: 0.3s;
+}
+
+.hamburger-menu-line:first-child {
+  top: 0;
+  animation-name: hamburgerFirst;
+  transform: rotate(45deg);
+}
+
+.hamburger-menu-line:last-child {
+  top: 0;
+  animation-name: hamburgerLast;
+  transform: rotate(-45deg);
+}
+
+.hamburger-menu-open .hamburger-menu-line:not(:first-child):not(:last-child) {
+  animation-name: hamburgerOpen;
+  transform: scaleX(100%);
+}
+
+.hamburger-menu-open .hamburger-menu-line:first-child {
+  top: -10px;
+  transform: rotate(0);
+  animation-name: hamburgerFirstOpen;
+}
+
+.hamburger-menu-open .hamburger-menu-line:last-child {
+  top: 10px;
+  transform: rotate(0);
+  animation-name: hamburgerLastOpen;
+}
+
+@keyframes hamburger {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes hamburgerOpen {
+  0% {
+    transform: scaleX(1);
+  }
+  100% {
+    transform: scaleX(0);
+  }
+}
+
+@keyframes hamburgerFirst {
+  0% {
+    top: 0;
+    transform: rotate(45deg);
+  }
+  50% {
+    top: 0;
+    transform: rotate(0);
+  }
+  100% {
+    top: 10px;
+    transform: rotate(0);
+  }
+}
+
+@keyframes hamburgerLast {
+  0% {
+    top: 0;
+    transform: rotate(-45deg);
+  }
+  50% {
+    top: 0;
+    transform: rotate(0);
+  }
+  100% {
+    top: -10px;
+    transform: rotate(0);
+  }
+}
+
+@keyframes hamburgerFirstOpen {
+  0% {
+    top: 10px;
+    transform: rotate(0);
+  }
+  50% {
+    top: 0;
+    transform: rotate(0);
+  }
+  100% {
+    top: 0;
+    transform: rotate(45deg);
+  }
+}
+
+@keyframes hamburgerLastOpen {
+  0% {
+    top: -12px;
+    transform: rotate(0);
+  }
+  50% {
+    top: 0;
+    transform: rotate(0);
+  }
+  100% {
+    top: 0;
+    transform: rotate(-45deg);
+  }
+}
+
+.nav-item {
+  top: 0;
+  position: absolute;
+  z-index: -1;
+  transition-property: all;
+  transition-timing-function: ease-in-out;
+}
+
+.nav-item:hover .nav-item-text {
+  left: 120%;
+  opacity: 1;
+}
+
+.nav-open .nav-item:first-child {
+  top: 6vw;
+  transition-duration: 0.15s;
+  z-index: 1;
+}
+
+.nav-open .nav-item:nth-child(2) {
+  top: calc(6vw * 2);
+  transition-duration: 0.3s;
+  z-index: 1;
+}
+
+.nav-open .nav-item:nth-child(3) {
+  top: calc(6vw * 3);
+  transition-duration: 0.45s;
+  z-index: 1;
+}
+
+.nav-open .nav-item:last-child {
+  top: calc(6vw * 4);
+  transition-duration: 0.6s;
+  z-index: 1;
+}
+
+.nav-item-text {
+  color: var(--snowy-dark-shadow);
+  position: absolute;
+  font-weight: 600;
+  left: 105%;
+  opacity: 0;
+  font-size: 1.5vw;
+  white-space: nowrap;
+  transition: all 0.3s ease-in-out;
+}

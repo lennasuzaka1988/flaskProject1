@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>My Website</title>
-    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="../../static/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="index-body">
     <header class="nav-container">
     {#When clicked, hamburger menu appears and chosen link moves to center as the title.#}
         <ul>
@@ -30,13 +30,11 @@
         </ul>
     </article>
     <div class="shiba-puppy">
-        <img class="image" src="../static/images/shiba.png" alt="Shiba Puppy" width="450">
+        <img class="image" src="../../static/images/shiba.png" alt="Shiba Puppy" width="450">
     </div>
 {#    {% for entry in response %}#}
 {#
 {#    {% endfor %}#}
-    <footer>
-        <small>&copy; MMcLean Media, {{ year }}. All rights reserved.</small>
-    </footer>
+    {% include 'main/footer.html' %}
 </body>
 </html>

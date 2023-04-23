@@ -1,0 +1,27 @@
+{% extends 'portfolio/nav_bar.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Portfolio Nav Bar</title>
+</head>
+<body>
+{% block page_title %}The Museum of Modern Portfolios{% endblock %}
+{% block nav_item %}
+    <img src="/static/images/home.svg" width=90% height=90% alt="Home Page">
+    <span class="nav-item-text">Home</span>
+{% endblock %}
+{% block nav_item_2 %}
+    <img src="/static/images/pen.svg" width=90% height=90% alt="Pen to represent the owner's blog">
+    <span class="nav-item-text">Blog</span>
+{% endblock %}
+{% block nav_item_3 %}
+    <img src="/static/images/shopping_cart.svg" width=90% height=90% alt="Owner's portfolio">
+    <span class="nav-item-text">Shop</span>
+{% endblock %}
+{% block nav_item_4 %}
+    <img src="/static/images/contact.svg" width=75% height=75% alt="Email to contact the owner">
+    <span class="nav-item-text">Contact</span>
+{% endblock %}
+</body>
+</html>

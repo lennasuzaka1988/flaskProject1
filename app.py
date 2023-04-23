@@ -36,12 +36,11 @@ app.config.update(dict(
 mail.init_app(app)
 
 
-
 @app.route('/')
 def home_page():
     current_date = date.today()
     current_year = current_date.year
-    return render_template('index.html', year=current_year)
+    return render_template('main/index.html', year=current_year)
 
 # @app.route('/about')
 # def about_page():
@@ -55,7 +54,7 @@ def blog():
     post_objects = [i for i in blogs]
     current_date = date.today()
     current_year = current_date.year
-    return render_template("blog.html", current_date=current_date, year=current_year, post=post_objects)
+    return render_template("blog/blog.html", current_date=current_date, year=current_year, post=post_objects)
 
 # @app.route('/open_critic_project')
 # def open_critic_api():
@@ -77,7 +76,7 @@ def blog_page(num):
     datetime_object = datetime.datetime.strptime(str(month), "%m")
     month_name = datetime_object.strftime("%B")
     post = [i for i in blogs if i['id'] == num]
-    return render_template('blog_page.html', post=post[0], year=year, month=month_name)
+    return render_template('blog/blog_page.html', post=post[0], year=year, month=month_name)
 
 
 @app.route('/contact', methods=["GET", "POST"])
@@ -95,13 +94,36 @@ def contact_page():
         %s 
         """ % (name, sender, body)
         mail.send(message)
-        return render_template('form_submit.html', form=contact_form)
+        return render_template('contact/form_submit.html', form=contact_form)
     else:
         print("Invalid Credentials")
 
-    return render_template('contact.html', form=contact_form)
+    return render_template('contact/contact.html', form=contact_form)
+
+
+@app.route('/portfolio')
+def portfolio():
+    current_date = date.today()
+    current_year = current_date.year
+
+    portfolio_dict = {
+        'Art': [('Hi', 'url1', 'Blah blah blah, entry here. There once was a kitty named Onyx. '
+                               'He was a rambunctious boi'), ('Meow', 'url2', 'My cat is a very good cat'),
+                ('Bye', 'url3', 'Have you ever thought of getting an orange kitty?')],
+        'Design': [('Ex1', 'url4'), ('Ex2', 'url5'), ('Ex3', 'url6')],
+        'Photography': [('Example', 'url7'), ('Example2', 'url8'), ('Example3', 'url9')],
+        'Python': [('This Project', 'url10'), ('And This', 'url11'), ('And This Also', 'url12')]
+    }
+
+    return render_template('portfolio/portfolio_canvas.html', year=current_year, portfolio=portfolio_dict,
+                           art=portfolio_dict['Art'],
+                           design=portfolio_dict['Design'],
+                           photography=portfolio_dict['Photography'],
+                           python=portfolio_dict['Python'])
 
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+
 

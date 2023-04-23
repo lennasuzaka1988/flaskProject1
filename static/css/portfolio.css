@@ -1,0 +1,229 @@
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+}
+
+.portfolio-body {
+    display: grid;
+    grid-template-areas:
+    'Navigation'
+    'PortfolioContainer'
+    'Foot';
+    grid-template-rows: max-content 1fr 5vh;
+    background: linear-gradient(60deg, var(--fresh-snow), var(--snowy-contrast) 90%);
+    color: #1d252b;
+    width: auto;
+    min-height: 100vh;
+}
+
+.title {
+    grid-area: Navigation;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Sniglet', cursive;
+    font-size: 5vw;
+}
+
+.sidebar {
+    grid-area: Navigation;
+    height: max-content;
+}
+
+.tabs-and-frame-container {
+    grid-area: PortfolioContainer;
+    display: grid;
+    grid-template-areas:
+    'Tabs Frame';
+    grid-template-columns: 1fr 75vw;
+    align-items: center;
+}
+
+.font {
+    font-family: 'Cabin', sans-serif;
+    font-weight: normal;
+    font-size: 4vw;
+}
+
+a {
+    text-decoration: none;
+}
+
+.tabs {
+    grid-area: Tabs;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.style-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 8vw;
+    height: calc(40vh * 0.25);
+    background-color: var(--snowy-dark-shadow);
+    border: none;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    box-shadow: 0 10px 7px -5px rgba(0, 0, 0, 0.3);
+    font-family: 'Cabin', sans-serif;
+    font-size: 1vw;
+    color: var(--fresh-snow);
+}
+
+.style-btn:hover {
+    animation: 0.25s linear 0s btn-animation forwards;
+    cursor: pointer;
+}
+
+.style-btn:focus {
+    background: var(--snowy-light-shadow);
+    width: 10vw;
+}
+
+@keyframes btn-animation {
+    from {
+        width: 8vw;
+        background-color: var(--snowy-dark-shadow);
+    }
+    to {
+        background: var(--snowy-light-shadow);
+        width: 10vw;
+    }
+}
+
+.frame {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+    align-items: center;
+    box-sizing: border-box;
+    background-color: var(--snowy-contrast);
+    width: 55vw;
+    height: 65vh;
+    text-align: center;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, .25) inset, 0 5px 10px 5px rgba(0, 0, 0, .25);
+    border: 5vmin solid;
+    border-top-color: #21272c;
+    border-right-color: #252a30;
+    border-left-color: #252a30;
+    border-bottom-color: #2a2f33;
+    border-radius: 2px;
+}
+
+.frame:before {
+    position: absolute;
+    border-radius: 1px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .25) inset;
+    content: "";
+    left: -2vmin;
+    right: -2vmin;
+    top: -2vmin;
+    bottom: -2vmin;
+}
+
+.frame:after {
+    z-index: 1;
+    position: absolute;
+    content: "";
+    border-radius: 2px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .25);
+    top: -2.5vmin;
+    right: -2.5vmin;
+    bottom: -2.5vmin;
+    left: -2.5vmin;
+}
+
+.mat {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.portfolio-container {
+    grid-area: PortfolioContainer;
+    overflow: scroll;
+    -ms-overflow-style: none; /* Edge */
+    background-color: var(--day-after-snow);
+    width: 90%;
+    height: 90%;
+    content: "";
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5) inset;
+    margin: 10%;
+}
+
+.portfolio-container::-webkit-scrollbar {
+    display: none;
+}
+
+.portfolio-box {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/*.info-box {*/
+/*    display: flex;*/
+/*    height: 100%;*/
+/*    background-color: var(--fresh-snow);*/
+/*    flex-direction: column;*/
+/*    flex-wrap: wrap;*/
+/*    align-content: center;*/
+/*    -webkit-animation: fadeIn 2s;*/
+/*    -moz-animation: fadeIn 2s;*/
+/*    -o-animation: fadeIn 2s;*/
+/*    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5) inset;*/
+/*}*/
+
+@-moz-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-o-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-ms-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+footer {
+    color: var(--fresh-snow);
+    font-family: 'Cabin', sans-serif;
+    grid-area: Foot;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: linear-gradient(60deg, #1d252b, #4e5f6e 300%);
+    padding-left: 2em;
+}

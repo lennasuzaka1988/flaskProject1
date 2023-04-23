@@ -1,0 +1,30 @@
+{% extends 'portfolio/portfolio_entries_template.html' %}
+{% block entries %}
+    {% for value in portfolio.Art %}
+        <div onclick='changeBox("{{ value[1] }}")'>
+            <div class="thumbnail">
+                <div class="thumbnail-entry">
+                    {{ value[0] }}
+                </div>
+            </div>
+        </div>
+        <div style="display:none;" id="{{ value[1] }}">
+            <div class="project-description">{{ value[2] }}</div>
+        </div>
+    {% endfor %}
+    <script>
+        function changeBox(url) {
+            let infoDiv = document.getElementById(url);
+            let thumbnails = document.querySelectorAll('.thumbnail')
+            let thumbnailContainer = document.querySelector('.thumbnails-container')
+            thumbnails.forEach(
+                function infoBox(thumbnail) {
+                    thumbnail.style.display = "none";
+                }
+            )
+            thumbnailContainer.classList.remove('thumbnails-container');
+            thumbnailContainer.classList.add('details-block');
+            infoDiv.style.display = "block";
+        }
+    </script>
+{% endblock %}

@@ -1,7 +1,7 @@
-body {
+.index-body {
     height: 100vh;
     width: 100%;
-    background-image: url("images/benjamin-voros-phIFdC6lA4E-unsplash.jpg");
+    background-image: url("../images/benjamin-voros-phIFdC6lA4E-unsplash.jpg");
     background-color: rgba(6, 6, 53, 0.6);
     background-size: cover;
     background-repeat: no-repeat;
