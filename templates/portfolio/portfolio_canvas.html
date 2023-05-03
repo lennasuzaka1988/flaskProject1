@@ -11,9 +11,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,500;1,400;1,500;1,700&family=Sniglet&display=swap"
           rel="stylesheet">
 </head>
-<body>
+<body class="main-body">
 <div class="portfolio-body">
     {% include 'portfolio/portfolio_nav.html' %}
+    <h1 class="title">Museum of Modern Portfolios</h1>
     <div class="tabs-and-frame-container">
         <div class="tabs">
             <a href="#">
@@ -38,12 +39,10 @@
             </a>
         </div>
         <div class="frame">
-            <div class="portfolio-container">
-                <div class="portfolio-box" id="Art">{% include 'portfolio/art.html' %}</div>
-                <div style="display: none" id="Design">{% include 'portfolio/design.html' %}</div>
-                <div style="display: none" id="Photography">{% include 'portfolio/photography.html' %}</div>
-                <div style="display: none" id="Python">{% include 'portfolio/python.html' %}</div>
-            </div>
+            <div class="portfolio-container" id="Art">{% include 'portfolio/art.html' %}</div>
+            <div style="display: none" id="Design">{% include 'portfolio/design.html' %}</div>
+            <div style="display: none" id="Photography">{% include 'portfolio/photography.html' %}</div>
+            <div style="display: none" id="Python">{% include 'portfolio/python.html' %}</div>
         </div>
     </div>
     {% include 'main/footer.html' %}

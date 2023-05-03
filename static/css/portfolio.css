@@ -1,4 +1,4 @@
-body {
+.main-body {
     margin: 0;
     padding: 0;
     min-height: 100%;
@@ -8,22 +8,22 @@ body {
     display: grid;
     grid-template-areas:
     'Navigation'
+    'Title'
     'PortfolioContainer'
     'Foot';
-    grid-template-rows: max-content 1fr 5vh;
+    grid-template-rows: max-content max-content 1fr 5vh;
     background: linear-gradient(60deg, var(--fresh-snow), var(--snowy-contrast) 90%);
     color: #1d252b;
-    width: auto;
     min-height: 100vh;
 }
 
 .title {
-    grid-area: Navigation;
+    grid-area: Title;
     display: flex;
-    align-items: center;
     justify-content: center;
-    font-family: 'Sniglet', cursive;
-    font-size: 5vw;
+    font-family: Cabin, sans-serif;
+    font-size: 4vw;
+    margin: 0;
 }
 
 .sidebar {
@@ -32,11 +32,8 @@ body {
 }
 
 .tabs-and-frame-container {
-    grid-area: PortfolioContainer;
     display: grid;
-    grid-template-areas:
-    'Tabs Frame';
-    grid-template-columns: 1fr 75vw;
+    grid-template-columns: 1fr 3fr;
     align-items: center;
 }
 
@@ -51,16 +48,12 @@ a {
 }
 
 .tabs {
-    grid-area: Tabs;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
 }
 
 .style-btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: 8vw;
     height: calc(40vh * 0.25);
     background-color: var(--snowy-dark-shadow);
@@ -96,13 +89,12 @@ a {
 
 .frame {
     display: flex;
-    flex-direction: row;
     justify-content: center;
     position: relative;
     align-items: center;
     box-sizing: border-box;
     background-color: var(--snowy-contrast);
-    width: 55vw;
+    width: 50vw;
     height: 65vh;
     text-align: center;
     box-shadow: 0 0 5px 0 rgba(0, 0, 0, .25) inset, 0 5px 10px 5px rgba(0, 0, 0, .25);
@@ -111,12 +103,10 @@ a {
     border-right-color: #252a30;
     border-left-color: #252a30;
     border-bottom-color: #2a2f33;
-    border-radius: 2px;
 }
 
 .frame:before {
     position: absolute;
-    border-radius: 1px;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .25) inset;
     content: "";
     left: -2vmin;
@@ -137,15 +127,20 @@ a {
     left: -2.5vmin;
 }
 
-.mat {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.close-button {
+    z-index: 5;
+    position: absolute;
+    width: 1vw;
+    top: 2vh;
+    left: 1vw;
+    padding: 0.5vw;
+    border-radius: 5px;
+    box-shadow: 0 0 1px 1px inset var(--snowy-dark-shadow), 0 0 3px 3px inset var(--snowy-light-shadow), 0 0 1px 0 black;
+    animation: fadeIn 2s;
 }
 
 .portfolio-container {
-    grid-area: PortfolioContainer;
+    display: flex;
     overflow: scroll;
     -ms-overflow-style: none; /* Edge */
     background-color: var(--day-after-snow);
@@ -153,65 +148,92 @@ a {
     height: 90%;
     content: "";
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5) inset;
-    margin: 10%;
 }
 
 .portfolio-container::-webkit-scrollbar {
     display: none;
 }
 
-.portfolio-box {
+.portfolio-flex {
     display: flex;
-    height: 100%;
-    flex-direction: column;
-    justify-content: center;
+    gap: 30px 20px;
     flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
 }
 
-/*.info-box {*/
-/*    display: flex;*/
-/*    height: 100%;*/
-/*    background-color: var(--fresh-snow);*/
-/*    flex-direction: column;*/
-/*    flex-wrap: wrap;*/
-/*    align-content: center;*/
-/*    -webkit-animation: fadeIn 2s;*/
-/*    -moz-animation: fadeIn 2s;*/
-/*    -o-animation: fadeIn 2s;*/
-/*    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5) inset;*/
-/*}*/
+.entry-flex {
+    height: 100%;
+    display: none;
+}
 
-@-moz-keyframes fadeIn {
+.value-information {
+    display: none;
+}
+
+.portfolio-block {
+    display: flex;
+    align-items: center;
+    animation: fadeIn 1s;
+    background-color: var(--snowy-light-shadow);
+    box-shadow: -16px 0 20px 0 rgba(0, 0, 0, 0.5) inset;
+}
+
+.entry-display-inset {
+    position: relative;
+    display: flex;
+    margin: 15%;
+    border-radius: 5px;
+}
+
+.entry-display-inset:before {
+    border-radius: 5px;
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    -moz-box-shadow: inset 0 1px 20px 1px #4e5f6e, inset 0 0 11px 3px rgb(0 0 0 / 90%);
+    box-shadow: inset 0 1px 20px 1px #4e5f6e, inset 0 0 11px 3px rgb(0 0 0 / 90%);
+    -webkit-box-shadow: inset 0 1px 20px 1px #4e5f6e, inset 0 0 11px 3px rgba(0 0 0 / 90%);
+}
+
+.portfolio-image {
+    width: 100%;
+    border-radius: 5px;
+    height: auto;
+}
+
+.project-description {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    line-height: 3vh;
+    width: 20vw;
+    padding: 1vw;
+    color: var(--fresh-snow);
+    background: var(--snowy-dark-shadow);
+    border-right: #040911 8px solid;
+    box-shadow: 20px 0 20px -15px rgba(0, 0, 0, 0.5) inset;
+    font-family: Sniglet, cursive;
+    font-size: 1.5rem;
+    -webkit-animation: slideIn 0.75s forwards;
+    -moz-animation: slideIn 0.75s forwards;
+    animation: slideIn 0.75s forwards;
+}
+
+@keyframes fadeIn {
     0% {
         opacity: 0;
     }
-    100% {
-        opacity: 1;
-    }
-}
 
-@-webkit-keyframes fadeIn {
-    0% {
+    10% {
         opacity: 0;
     }
-    100% {
-        opacity: 1;
-    }
-}
 
-@-o-keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-@-ms-keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
     100% {
         opacity: 1;
     }
@@ -227,3 +249,4 @@ footer {
     background: linear-gradient(60deg, #1d252b, #4e5f6e 300%);
     padding-left: 2em;
 }
+

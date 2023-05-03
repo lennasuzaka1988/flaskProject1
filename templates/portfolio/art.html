@@ -1,5 +1,6 @@
-{% extends 'portfolio/portfolio_entries_template.html' %}
+{% extends 'portfolio/thumbnails_container_template.html' %}
 {% block entries %}
+<div class="portfolio-flex">
     {% for value in portfolio.Art %}
         <div onclick='changeBox("{{ value[1] }}")'>
             <div class="thumbnail">
@@ -8,23 +9,24 @@
                 </div>
             </div>
         </div>
-        <div style="display:none;" id="{{ value[1] }}">
-            <div class="project-description">{{ value[2] }}</div>
+    {% endfor %}
+</div>
+<div class="entry-flex">
+    {% for value in portfolio.Art %}
+        <div id="{{ value[1] }}" class="value-information">
+            <img src="/static/images/close-out.svg"
+                 alt="close out button"
+                 class="close-button" onclick="closeOut()">
+            <div class="project-description">
+                <p class="project-text">{{ value[2] }}</p>
+            </div>
+            <div class="portfolio-block">
+                <div class="entry-display-inset">
+                    <img src="{{ value[3] }}" alt="{{ value[4] }}" class="portfolio-image">
+                </div>
+            </div>
         </div>
     {% endfor %}
-    <script>
-        function changeBox(url) {
-            let infoDiv = document.getElementById(url);
-            let thumbnails = document.querySelectorAll('.thumbnail')
-            let thumbnailContainer = document.querySelector('.thumbnails-container')
-            thumbnails.forEach(
-                function infoBox(thumbnail) {
-                    thumbnail.style.display = "none";
-                }
-            )
-            thumbnailContainer.classList.remove('thumbnails-container');
-            thumbnailContainer.classList.add('details-block');
-            infoDiv.style.display = "block";
-        }
-    </script>
+</div>
+<script src="/static/javascript/closeAndRevealPortfolioEntries.js"></script>
 {% endblock %}

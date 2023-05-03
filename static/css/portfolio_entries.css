@@ -1,19 +1,15 @@
 .thumbnails-container {
+    display: block;
+    position: relative;
+    height: 100%;
     width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px 20px;
-    flex-direction: row;
-    justify-content: center;
-    z-index: 2;
+    z-index: 3;
 }
 
 .thumbnail {
-    display: flex;
     background-image: url("../images/lightfall.jfif");
-    width: 250px;
-    height: 150px;
-    margin: 0;
+    width: 15vw;
+    height: 13vh;
     color: #FFF;
     font-family: Cabin, cursive;
     font-size: 1.5vw;
@@ -24,11 +20,10 @@
 
 .thumbnail-entry {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     border-radius: 5px;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(5px);
     height: 100%;
     width: 100%;
     box-shadow: 0 0 6px 3px rgba(0, 0, 0, 0.3) inset;
@@ -39,18 +34,6 @@
     cursor: pointer;
 }
 
-.details-block {
-    display: flex;
-    align-items: center;
-    text-align: left;
-    border-right: #040911 8px solid;
-    width: 13vw;
-    height: 100%;
-    background: var(--snowy-dark-shadow);
-    -webkit-animation: slideIn 0.75s forwards;
-    -moz-animation: slideIn 0.75s forwards;
-    animation: slideIn 0.75s forwards;
-}
 
 @-webkit-keyframes slideIn {
     0% {
@@ -77,27 +60,6 @@
 
     100% {
         transform: translateX(0);
-    }
-}
-
-.project-description {
-    font-family: Sniglet, cursive;
-    color: var(--fresh-snow);
-    animation: fadeIn 2s;
-    padding: 0 calc(25%/2);
-}
-
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-
-    40% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 1;
     }
 }
 

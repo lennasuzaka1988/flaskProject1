@@ -1,10 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<h1 id="design">This is Design</h1>
-</body>
-</html>
+{% extends 'portfolio/thumbnails_container_template.html' %}
+{% block design_entries %}
+<div class="portfolio-flex">
+    {% for value in portfolio.Design %}
+        <div onclick='changeBox("{{ value[1] }}")'>
+            <div class="thumbnail">
+                <div class="thumbnail-entry">
+                    {{ value[0] }}
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+<div class="entry-flex">
+    {% for value in portfolio.Design %}
+        <div id="{{ value[1] }}" class="value-information">
+            <img src="/static/images/close-out.svg"
+                 alt="close out button"
+                 class="close-button" onclick="closeOut()">
+            <div class="project-description">
+                <p class="project-text">{{ value[2] }}</p>
+            </div>
+            <div class="portfolio-block">
+                <div class="entry-display-inset">
+                    <img src="{{ value[3] }}" alt="{{ value[4] }}" class="portfolio-image">
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+<script src="/static/javascript/closeAndRevealPortfolioEntries.js"></script>
+{% endblock %}

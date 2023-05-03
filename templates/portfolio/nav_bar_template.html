@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
 <body>
-<h1 class="title">{% block page_title %}{% endblock %}</h1>
 <div class="sidebar">
     <div class="hamburger-menu-container">
         <div class="hamburger-menu">
@@ -10,17 +8,17 @@
             <div class="hamburger-menu-line"></div>
         </div>
     </div>
-    <nav class="nav">
-        <nav class="nav-item">
+    <nav class="nav" aria-labelledby="homeNav">
+        <nav class="nav-item" aria-labelledby="homeNavItem1">
             {% block nav_item %}{% endblock %}
         </nav>
-        <nav class="nav-item">
+        <nav class="nav-item" aria-labelledby="homeNavItem2">
             {% block nav_item_2 %}{% endblock %}
         </nav>
-        <nav class="nav-item">
+        <nav class="nav-item" aria-labelledby="homeNavItem3">
             {% block nav_item_3 %}{% endblock %}
         </nav>
-        <nav class="nav-item">
+        <nav class="nav-item" aria-labelledby="homeNavItem4">
             {% block nav_item_4 %}{% endblock %}
         </nav>
     </nav>
